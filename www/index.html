@@ -20,6 +20,7 @@
     under the License.
 -->
 <html>
+
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
@@ -29,19 +30,41 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>B64</title>
     </head>
+
     <body>
+
+      <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+
+      <script type="text/javascript">
+
+          function changeText(t) {
+              //alert(t);
+              document.getElementById('tarea').value=t;
+          }
+
+      </script>
+
         <div class="app">
             <center><h1>B64</h1></center>
             <div id="deviceready">
-                <textarea placeholder="Text" rows="10" cols="30"></textarea><br>
-                <center><a href="#" class="push_button">Encode/Decode</a></center>
+                <textarea id="tarea" placeholder="Text" rows="10" cols="30"></textarea><br>
+
+                <center><table width="80%"><tr>
+
+                  <td align="left"><a href="#" onclick="changeText(b64.encode(document.getElementById('tarea').value));" class="push_button">Encode</a></td>
+                  <td align="right"><a href="#" onclick="changeText(b64.decode(document.getElementById('tarea').value));" class="push_button">Decode</a></td>
+
+
+                </tr></table></center>
+
+
             </div>
         </div>
 
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
+
     </body>
 </html>
